@@ -1,5 +1,6 @@
 window.onload =function(){
 var color = 'white';
+var checker = false;
 
 
 
@@ -46,16 +47,29 @@ var makingSquare = function(number){
 
     for(var i = 0; i < number; i ++){
       var block = document.createElement('div');
-      block.id = 'block'+ j+ i ;
+      block.id = j + 'block'+ i ;
       block.className = 'block';
       block.innerHTML = "";
       document.getElementById('row' + j).appendChild(block);
-var test = document.getElementById(('block' + j + i));
-test.addEventListener("mousedown", function(){
-this.style.background=color;   //need to change to equal to  var color = _______
-    });
-}
-  }
+
+      var mouseEnter = document.getElementById((j + 'block' + i));
+      mouseEnter.addEventListener("mouseenter", function(){
+        if (checker === true) {
+
+            this.style.background=color;   //need to change to equal to  var color = _______
+
+        } //if
+      }); //addEventListener
+      // var clear = document.getElementsByClass((j + 'block' + i));
+      // clear.addEventListener("mouseenter", function(){
+      //   if (checker === true) {
+      //     var test = document.getElementById((j + 'block' + i));
+      //     test.addEventListener("mouseover", function(){
+      //       this.style.background=color;   //need to change to equal to  var color = _______
+      //     });
+        //} //if
+    }//inside For
+  }//outside For
 
 
   return '';
@@ -65,14 +79,14 @@ var makingColorSwatch = function(number){
 
   for(var j = 0;j<number; j++){
   var rowC = document.createElement('div');
-  rowC.id = "rowC" +j;
+  rowC.id = "rowC" + j;
   rowC.className = "rowC";
   // rowC.innerHTML = '';
   document.getElementById('colorSwatch').appendChild(rowC);
 
     for(var i = 0; i < number; i ++){
       var blockC = document.createElement('div');
-      blockC.id = 'blockC'+ j+ i ;
+      blockC.id = 'blockC'+ j + i ;
       blockC.className = 'blockC';
       blockC.innerHTML = "";
       document.getElementById('rowC' + j).appendChild(blockC);
@@ -100,11 +114,20 @@ document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
 
 var buttons = document.createElement('div');
 buttons.id = 'buttons';
-buttons.innerHTML = 'buttons';
 document.body.appendChild(buttons);
 
+var eraseButton = document.createElement('button');
+eraseButton.id = 'erase';
+eraseButton.innerHTML = "Erase";
+document.getElementById('buttons').appendChild(eraseButton);
+
+var clearButton = document.createElement('button');
+clearButton.id = 'clear';
+clearButton.innerHTML = "Clear";
+document.getElementById('buttons').appendChild(clearButton);
+
 var grid = document.createElement('div');
-grid.innerHTML =makingSquare(10);
+grid.innerHTML =makingSquare(20);
 document.getElementById('pixelPainter').appendChild(grid);
 
 //---------------------------------------------
@@ -124,12 +147,22 @@ document.getElementById('blockC11').addEventListener("click", function(){
   color= "yellow";
     });
 
+document.getElementById('erase').addEventListener("click", function(){
+  color = "white";
+});
+document.getElementById('clear').addEventListener("click", function(){
+  var allBlocks = document.getElementsByClass('block');
+  allBlocks.color = 'white';
 
+});
 
+document.body.addEventListener("mousedown", function(){
+  checker = true;
+});
 
-
-
-
+document.body.addEventListener("mouseup", function(){
+  checker = false;
+});
 
 
 
