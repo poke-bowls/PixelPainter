@@ -50,10 +50,10 @@ var makingSquare = function(number){
       block.className = 'block';
       block.innerHTML = "";
       document.getElementById('row' + j).appendChild(block);
-// var test = document.getElementById(('block' + j + i));
-// test.addEventListener("click", function(){
-// this.style.background=color;   //need to change to equal to  var color = _______
-//     });
+var test = document.getElementById(('block' + j + i));
+test.addEventListener("mousedown", function(){
+this.style.background=color;   //need to change to equal to  var color = _______
+    });
 }
   }
 
@@ -77,10 +77,10 @@ var makingColorSwatch = function(number){
       blockC.innerHTML = "";
       document.getElementById('rowC' + j).appendChild(blockC);
 
-      var test = document.getElementById(('blockC' + j + i));
-      test.addEventListener("click", function(){
-          this.style.background=color;   //need to change to equal to  var color = _______
-      });
+      // var test = document.getElementById(('blockC' + j + i));
+      // test.addEventListener("click", function(){
+      //     this.style.background=color;   //need to change to equal to  var color = _______
+      // });
     }
   }
   return '';
@@ -107,15 +107,43 @@ var grid = document.createElement('div');
 grid.innerHTML =makingSquare(10);
 document.getElementById('pixelPainter').appendChild(grid);
 
+//---------------------------------------------
+document.getElementById('blockC00').addEventListener("click", function(){
+  color= "red";
+    });
+
+document.getElementById('blockC01').addEventListener("click", function(){
+  color= "green";
+    });
+
+document.getElementById('blockC10').addEventListener("click", function(){
+  color= "blue";
+    });
+
+document.getElementById('blockC11').addEventListener("click", function(){
+  color= "yellow";
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 };
 
-
-//---------------------------------------------
-document.getElementById('blockC00').addEventListener("click", function(){
-  // this.querySelector('.body').style.display='block';
-// test.style.background.color=color;   //need to change to equal to  var color = _______
-    });
