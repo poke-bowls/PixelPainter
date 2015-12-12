@@ -1,0 +1,33 @@
+#pixelPainter {
+  border: 1px solid black;
+  padding: 5px;
+  display: inline-block;
+
+}
+
+#colorSwatch {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+#buttons {
+  border: 1px solid black;
+  padding: 5px;
+  float: left;
+}
+
+.row{
+
+  margin: 0px;
+
+  display: inline-block;
+}
+
+
+
+.block{
+  border: 1px solid black;
+  margin: 0px;
+  padding: 10px;
+}
+
