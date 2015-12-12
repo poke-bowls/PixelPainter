@@ -54,6 +54,11 @@ var makingSquare = function(number){
       document.getElementById('row' + j).appendChild(block);
 
       var mouseEnter = document.getElementById((j + 'block' + i));
+
+      // For start/stop functionality instead of click/drag
+      //1. Uncomment this.
+      //2. Comment out "mousedown" and "mouseup" event listeners
+      //
       //   mouseEnter.addEventListener("click", function(){
       //   this.style.background = color;
       //   checker = !checker;
@@ -66,10 +71,9 @@ var makingSquare = function(number){
 
       mouseEnter.addEventListener("mouseenter", function(){
         if (checker === true) {
-            this.style.background=color;   //need to change to equal to  var color = _______
+            this.style.background=color;
 
-        } //if
-
+        }
 
       //clear button here
       //getElementsByClassName returns a HTML Collection (like array)
@@ -80,13 +84,6 @@ var makingSquare = function(number){
           allBlocks[i].style.background = 'white';
          }
       });
-
-
-
-
-
-
-
 
       });
     }//inside For
@@ -126,7 +123,7 @@ colorSwatch.id = 'colorSwatch';
 document.body.appendChild(colorSwatch);
 //append a div(our color swatch) to colorSwatch
 var colorSwatchGrid = document.createElement('div');
-colorSwatchGrid.innerHTML = makingColorSwatch(2);
+colorSwatchGrid.innerHTML = makingColorSwatch(4);
 document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
 //create a div for buttons
 var buttons = document.createElement('div');
@@ -156,12 +153,60 @@ document.getElementById('blockC01').addEventListener("click", function(){
   color= "green";
     });
 
-document.getElementById('blockC10').addEventListener("click", function(){
+document.getElementById('blockC02').addEventListener("click", function(){
+  color= "yellow";
+    });
+
+document.getElementById('blockC03').addEventListener("click", function(){
   color= "blue";
     });
 
+document.getElementById('blockC10').addEventListener("click", function(){
+  color= "black";
+    });
+
 document.getElementById('blockC11').addEventListener("click", function(){
-  color= "yellow";
+  color= "white";
+    });
+
+document.getElementById('blockC12').addEventListener("click", function(){
+  color= "brown";
+    });
+
+document.getElementById('blockC13').addEventListener("click", function(){
+  color= "gray";
+    });
+
+document.getElementById('blockC20').addEventListener("click", function(){
+  color= "pink";
+    });
+
+document.getElementById('blockC21').addEventListener("click", function(){
+  color= "orange";
+    });
+
+document.getElementById('blockC22').addEventListener("click", function(){
+  color= "blanchedalmond";
+    });
+
+document.getElementById('blockC23').addEventListener("click", function(){
+  color= "fuchsia";
+    });
+
+document.getElementById('blockC30').addEventListener("click", function(){
+  color= "Chartreuse";
+    });
+
+document.getElementById('blockC31').addEventListener("click", function(){
+  color= "cyan";
+    });
+
+document.getElementById('blockC32').addEventListener("click", function(){
+  color= "darkmagenta";
+    });
+
+document.getElementById('blockC33').addEventListener("click", function(){
+  color= "firebrick";
     });
 
 document.getElementById('erase').addEventListener("click", function(){
