@@ -50,24 +50,45 @@ var makingSquare = function(number){
       block.id = j + 'block'+ i ;
       block.className = 'block';
       block.innerHTML = "";
+      block.style.background = 'white';
       document.getElementById('row' + j).appendChild(block);
 
       var mouseEnter = document.getElementById((j + 'block' + i));
+      //   mouseEnter.addEventListener("click", function(){
+      //   this.style.background = color;
+      //   checker = !checker;
+      // });
+
+      mouseEnter.addEventListener("mousedown", function(){
+        checker = true;
+        this.style.background = color;
+      });
+
       mouseEnter.addEventListener("mouseenter", function(){
         if (checker === true) {
-
             this.style.background=color;   //need to change to equal to  var color = _______
 
         } //if
-      }); //addEventListener
-      // var clear = document.getElementsByClass((j + 'block' + i));
-      // clear.addEventListener("mouseenter", function(){
-      //   if (checker === true) {
-      //     var test = document.getElementById((j + 'block' + i));
-      //     test.addEventListener("mouseover", function(){
-      //       this.style.background=color;   //need to change to equal to  var color = _______
-      //     });
-        //} //if
+
+
+      //clear button here
+      //getElementsByClassName returns a HTML Collection (like array)
+      var clearAll = document.getElementById('clear');
+      clearAll.addEventListener("click", function(){
+         var allBlocks = document.getElementsByClassName('block');
+         for (i = 0; i < allBlocks.length; i++) {
+          allBlocks[i].style.background = 'white';
+         }
+      });
+
+
+
+
+
+
+
+
+      });
     }//inside For
   }//outside For
 
@@ -91,10 +112,6 @@ var makingColorSwatch = function(number){
       blockC.innerHTML = "";
       document.getElementById('rowC' + j).appendChild(blockC);
 
-      // var test = document.getElementById(('blockC' + j + i));
-      // test.addEventListener("click", function(){
-      //     this.style.background=color;   //need to change to equal to  var color = _______
-      // });
     }
   }
   return '';
@@ -103,29 +120,29 @@ var makingColorSwatch = function(number){
 
 //----------------------------------------
 
-
+//make a div for colorSwatch
 var colorSwatch = document.createElement('div');
 colorSwatch.id = 'colorSwatch';
 document.body.appendChild(colorSwatch);
-
+//append a div(our color swatch) to colorSwatch
 var colorSwatchGrid = document.createElement('div');
 colorSwatchGrid.innerHTML = makingColorSwatch(2);
 document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
-
+//create a div for buttons
 var buttons = document.createElement('div');
 buttons.id = 'buttons';
 document.body.appendChild(buttons);
-
+//append an erase button
 var eraseButton = document.createElement('button');
 eraseButton.id = 'erase';
 eraseButton.innerHTML = "Erase";
 document.getElementById('buttons').appendChild(eraseButton);
-
+//append a clear button
 var clearButton = document.createElement('button');
 clearButton.id = 'clear';
 clearButton.innerHTML = "Clear";
 document.getElementById('buttons').appendChild(clearButton);
-
+//append divs(our ) to our
 var grid = document.createElement('div');
 grid.innerHTML =makingSquare(20);
 document.getElementById('pixelPainter').appendChild(grid);
@@ -150,23 +167,11 @@ document.getElementById('blockC11').addEventListener("click", function(){
 document.getElementById('erase').addEventListener("click", function(){
   color = "white";
 });
-document.getElementById('clear').addEventListener("click", function(){
-  var allBlocks = document.getElementsByClass('block');
-  allBlocks.color = 'white';
 
-});
-
-document.body.addEventListener("mousedown", function(){
-  checker = true;
-});
 
 document.body.addEventListener("mouseup", function(){
   checker = false;
 });
-
-
-
-
 
 
 
