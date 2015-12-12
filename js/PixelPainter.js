@@ -68,7 +68,7 @@ var makingColorSwatch = function(number){
   var rowC = document.createElement('div');
   rowC.id = "rowC" +j;
   rowC.className = "rowC";
-  rowC.innerHTML = '';
+  // rowC.innerHTML = '';
   document.getElementById('colorSwatch').appendChild(rowC);
 
     for(var i = 0; i < number; i ++){
@@ -78,10 +78,10 @@ var makingColorSwatch = function(number){
       blockC.innerHTML = "";
       document.getElementById('rowC' + j).appendChild(block);
 
-      var test = document.getElementById(('blockC' + j + i));
-      test.addEventListener("click", function(){
-          this.style.background=color;   //need to change to equal to  var color = _______
-      });
+      // var test = document.getElementById(('blockC' + j + i));
+      // test.addEventListener("click", function(){
+      //     this.style.background=color;   //need to change to equal to  var color = _______
+      // });
     }
   }
 
@@ -95,7 +95,7 @@ var makingColorSwatch = function(number){
 
 var colorSwatch = document.createElement('div');
 colorSwatch.id = 'colorSwatch';
-colorSwatch.innerHTML = "hi";
+colorSwatch.innerHTML = makingColorSwatch(2);
 document.body.appendChild(colorSwatch);
 
 var buttons = document.createElement('div');

@@ -1,6 +1,11 @@
 PixelPainter
 ============
 
+aloha mai kakou e na kini o ka aina o manoa
+aina o ka ua tuahine
+ke ala hele o ala eli
+aina nani o kanewai
+
 > Coloring pixels in a grid
 
 ![sketch](http://i.imgur.com/6kLmYWp.png)
