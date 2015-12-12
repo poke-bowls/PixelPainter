@@ -1,5 +1,5 @@
 window.onload =function(){
-var color = 'blue';
+var color = 'white';
 
 
 
@@ -50,12 +50,11 @@ var makingSquare = function(number){
       block.className = 'block';
       block.innerHTML = "";
       document.getElementById('row' + j).appendChild(block);
-
-      var test = document.getElementById(('block' + j + i));
-      test.addEventListener("click", function(){
-          this.style.background=color;   //need to change to equal to  var color = _______
-      });
-    }
+// var test = document.getElementById(('block' + j + i));
+// test.addEventListener("click", function(){
+// this.style.background=color;   //need to change to equal to  var color = _______
+//     });
+}
   }
 
 
@@ -76,16 +75,14 @@ var makingColorSwatch = function(number){
       blockC.id = 'blockC'+ j+ i ;
       blockC.className = 'blockC';
       blockC.innerHTML = "";
-      document.getElementById('rowC' + j).appendChild(block);
+      document.getElementById('rowC' + j).appendChild(blockC);
 
-      // var test = document.getElementById(('blockC' + j + i));
-      // test.addEventListener("click", function(){
-      //     this.style.background=color;   //need to change to equal to  var color = _______
-      // });
+      var test = document.getElementById(('blockC' + j + i));
+      test.addEventListener("click", function(){
+          this.style.background=color;   //need to change to equal to  var color = _______
+      });
     }
   }
-
-
   return '';
 };
 
@@ -95,8 +92,11 @@ var makingColorSwatch = function(number){
 
 var colorSwatch = document.createElement('div');
 colorSwatch.id = 'colorSwatch';
-colorSwatch.innerHTML = makingColorSwatch(2);
 document.body.appendChild(colorSwatch);
+
+var colorSwatchGrid = document.createElement('div');
+colorSwatchGrid.innerHTML = makingColorSwatch(2);
+document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
 
 var buttons = document.createElement('div');
 buttons.id = 'buttons';
@@ -111,10 +111,11 @@ document.getElementById('pixelPainter').appendChild(grid);
 
 
 
-
-
 };
 
 
 //---------------------------------------------
-
+document.getElementById('blockC00').addEventListener("click", function(){
+  // this.querySelector('.body').style.display='block';
+// test.style.background.color=color;   //need to change to equal to  var color = _______
+    });

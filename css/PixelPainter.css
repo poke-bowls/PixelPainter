@@ -2,12 +2,13 @@
   border: 1px solid black;
   padding: 5px;
   display: inline-block;
-
 }
 
 #colorSwatch {
   border: 1px solid black;
   padding: 5px;
+  display: inline-block;
+  float: left;
 }
 
 #buttons {
@@ -19,11 +20,8 @@
 .row{
 
   margin: 0px;
-
   display: inline-block;
 }
-
-
 
 .block{
   border: 1px solid black;
@@ -31,3 +29,30 @@
   padding: 10px;
 }
 
+.rowC{
+
+  margin: 0px;
+  display: inline-block;
+}
+
+.blockC{
+  border: 1px solid black;
+  margin: 0px;
+  padding: 10px;
+}
+
+#blockC00{
+  background-color: red;
+}
+
+#blockC01{
+  background-color: green;
+}
+
+#blockC10{
+  background-color: blue;
+}
+
+#blockC11{
+  background-color: yellow;
+}
