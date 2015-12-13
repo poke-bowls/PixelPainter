@@ -98,9 +98,14 @@ var colorSwatchGrid = document.createElement('div');
 colorSwatchGrid.innerHTML = makingColorSwatch(2);
 document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
 
+// var path = rectangle({
+//   point: [1000, 1000],
+//   size: [1000, 2000],
+//   strokeColor: 'black'
+// });
 var buttons = document.createElement('div');
 buttons.id = 'buttons';
-buttons.innerHTML = 'buttons';
+buttons.innerHTML = 'button';
 document.body.appendChild(buttons);
 
 var grid = document.createElement('div');
