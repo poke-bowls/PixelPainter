@@ -3,27 +3,26 @@ body {
 }
 
 #pixelPainter {
-  border: 1px solid black;
   padding: 5px;
   display: inline-block;
   min-width: 440px;
 }
 
 #buttons {
-  border: 1px solid black;
   padding: 5px;
   float: left;
-  clear: both;
   display: inline-block;
 }
 
 #colorSwatch {
-  border: 1px solid black;
   padding: 5px;
+  max-width: 45px;
+  float: left;
+  clear: both;
+  display: block;
 }
 
 .row{
-
   margin: 0px;
   display: inline-block;
 }
@@ -35,7 +34,6 @@ body {
 }
 
 .rowC{
-
   margin: 0px;
   display: inline-block;
 }

@@ -1,4 +1,15 @@
  //Every color selector will clear oldList????
+var mobile = window.innerWidth;
+var gridSize = resize( mobile );
+var makingSquareGlobal;
+
+function resize( mobile ) {
+  if ( mobile < 910 ) {
+
+    return 25;
+  }
+  return 35;
+}
 
 window.onload = function(){
 var color = 'white',
@@ -34,7 +45,7 @@ ColorSwatch.prototype = Object.create(PixelPainter.prototype,{
 //----------------------------------------
 
 //squares in the grid
-var makingSquare = function(number){
+var makingSquare = function makingSquare(number){
 
   for(var j = 0;j<number; j++){
   var row = document.createElement('div');
@@ -109,6 +120,7 @@ var makingSquare = function(number){
 
   return '';
 };
+makingSquareGlobal = makingSquare;
 
 var makingColorSwatch = function(number){
 
@@ -125,13 +137,13 @@ var makingColorSwatch = function(number){
       blockC.className = 'blockC';
       blockC.innerHTML = "";
       document.getElementById('rowC' + j).appendChild(blockC);
-
     }
   }
   return '';
 };
 
 //----------------------------------------
+
 // create a div for buttons
 var buttons = document.createElement('div');
 buttons.id = 'buttons';
@@ -178,7 +190,7 @@ document.getElementById('buttons').appendChild(copyButton);
 
 //append divs ( our ) to our
 var grid = document.createElement('div');
-grid.innerHTML = makingSquare(20);
+grid.innerHTML = makingSquare( gridSize );
 document.getElementById('pixelPainter').appendChild(grid);
 
 //---------------------------------------------
@@ -268,4 +280,13 @@ document.getElementById('erase').addEventListener("click", function(){
   newList = [];
 });
 
+};
+
+window.onresize = function( event ) {
+  mobile = window.innerWidth;
+  gridSize = resize( mobile );
+  var grid = document.createElement('div');
+  grid.innerHTML = makingSquareGlobal( gridSize );
+  document.getElementById('pixelPainter').appendChild(grid);
+  console.log(gridSize);
 };

@@ -1,27 +1,45 @@
 body {
   background-color: pink;
+  margin: 0px;
+}
+
+h1 {
+  display: none;
 }
 
 #pixelPainter {
   display: inline-block;
+  padding: 0px;
 }
 
 #colorSwatch {
   display: block;
   max-height: 45px;
+  max-width: 750px;
+  padding: 0px;
   clear: both;
-  max-width: 355px;
+/*  position: fixed;*/
+  /*padding-top: 407px;*/
 }
 
 #buttons {
+  padding: 0px;
   display: static;
   float: left;
 }
 
 .btns {
   display: inline-block;
+  font-weight: bold;
+  font-size: 22.8px;
+  height: 35px;
+}
+
+.block{
+  padding: 8px;
 }
 
 .blockC {
   display: inline-block;
+  padding: 9.15px;
 }
