@@ -1,8 +1,7 @@
 window.onload =function(){
 var color = 'white';
 var checker = false;
-
-
+var undoList = [];
 
 function PixelPainter(width,height){
   this.width = width;
@@ -56,24 +55,31 @@ var makingSquare = function(number){
       var mouseEnter = document.getElementById((j + 'block' + i));
 
       // For start/stop functionality instead of click/drag
-      //1. Uncomment this.
-      //2. Comment out "mousedown" and "mouseup" event listeners
-      //
-      //   mouseEnter.addEventListener("click", function(){
-      //   this.style.background = color;
-      //   checker = !checker;
-      // });
+      // 1. Uncomment this.
+      // 2. Comment out "mousedown" and "mouseup" event listeners
 
-      mouseEnter.addEventListener("mousedown", function(){
-        checker = true;
+        mouseEnter.addEventListener("click", function(){
         this.style.background = color;
+        checker = !checker;
+        undoList.push(this);
       });
+
+      // mouseEnter.addEventListener("mousedown", function(){
+      //   checker = true;
+      //   this.style.background = color;
+      // });
 
       mouseEnter.addEventListener("mouseenter", function(){
         if (checker === true) {
             this.style.background=color;
-
+            undoList.push(this);
         }
+
+        // mouseEnter.addEventListener("mouseup", function(){
+          // undoList.push(this);
+          // checker = false;
+          //}
+
 
       //clear button here
       //getElementsByClassName returns a HTML Collection (like array)
@@ -85,10 +91,19 @@ var makingSquare = function(number){
          }
       });
 
+      //undo button here
+      //iterate through list of objects saved and change color to white
+      var undoLast = document.getElementById('undo');
+      undoLast.addEventListener("click", function(){
+        for (i = 0; i < undoList.length; i++) {
+          undoList[i].style.background = 'white';
+        }
+          undoList = [];
+      });
+
       });
     }//inside For
   }//outside For
-
 
   return '';
 };
@@ -113,7 +128,6 @@ var makingColorSwatch = function(number){
   }
   return '';
 };
-
 
 //----------------------------------------
 
@@ -141,12 +155,18 @@ var clearButton = document.createElement('button');
 clearButton.id = 'clear';
 clearButton.innerHTML = "Clear";
 document.getElementById('buttons').appendChild(clearButton);
+//append an undo button
+var undoButton = document.createElement('button');
+undoButton.id = 'undo';
+undoButton.innerHTML = "Undo";
+document.getElementById('buttons').appendChild(undoButton);
 //append divs(our ) to our
 var grid = document.createElement('div');
 grid.innerHTML =makingSquare(20);
 document.getElementById('pixelPainter').appendChild(grid);
 
 //---------------------------------------------
+
 document.getElementById('blockC00').addEventListener("click", function(){
   color= "red";
     });
@@ -216,19 +236,6 @@ document.getElementById('erase').addEventListener("click", function(){
 });
 
 
-document.body.addEventListener("mouseup", function(){
-  checker = false;
-});
-
-
-
-
-
-
-
-
-
-
+// });
 
 };
-
