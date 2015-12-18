@@ -132,6 +132,11 @@ var makingColorSwatch = function(number){
 };
 
 //----------------------------------------
+// create a div for buttons
+var buttons = document.createElement('div');
+buttons.id = 'buttons';
+document.body.appendChild(buttons);
+$ ( document.getElementById( 'pixelPainter' )).insertAfter( document.getElementById( 'buttons' ) );
 
 //make a div for colorSwatch
 var colorSwatch = document.createElement('div');
@@ -143,32 +148,31 @@ var colorSwatchGrid = document.createElement('div');
 colorSwatchGrid.innerHTML = makingColorSwatch(4);
 document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
 
-//create a div for buttons
-var buttons = document.createElement('div');
-buttons.id = 'buttons';
-document.body.appendChild(buttons);
-
 //append an erase button
 var eraseButton = document.createElement('button');
 eraseButton.id = 'erase';
+eraseButton.className = 'btns';
 eraseButton.innerHTML = "Erase";
 document.getElementById('buttons').appendChild(eraseButton);
 
 //append a clear button
 var clearButton = document.createElement('button');
 clearButton.id = 'clear';
+clearButton.className = 'btns';
 clearButton.innerHTML = "Clear";
 document.getElementById('buttons').appendChild(clearButton);
 
 //append an undo button
 var undoButton = document.createElement('button');
 undoButton.id = 'undo';
+undoButton.className = 'btns';
 undoButton.innerHTML = "Undo";
 document.getElementById('buttons').appendChild(undoButton);
 
 //append a copy button
 var copyButton = document.createElement('button');
 copyButton.id = 'copy';
+copyButton.className = 'btns';
 copyButton.innerHTML = "Copy";
 document.getElementById('buttons').appendChild(copyButton);
 

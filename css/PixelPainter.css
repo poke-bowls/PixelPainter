@@ -1,14 +1,12 @@
+body {
+  background-color: green;
+}
+
 #pixelPainter {
   border: 1px solid black;
   padding: 5px;
   display: inline-block;
-}
-
-#colorSwatch {
-  border: 1px solid black;
-  padding: 5px;
-  display: inline-block;
-  float: left;
+  min-width: 440px;
 }
 
 #buttons {
@@ -17,6 +15,11 @@
   float: left;
   clear: both;
   display: inline-block;
+}
+
+#colorSwatch {
+  border: 1px solid black;
+  padding: 5px;
 }
 
 .row{
@@ -41,6 +44,10 @@
   border: 1px solid black;
   margin: 0px;
   padding: 10px;
+}
+
+.btns {
+  display: block;
 }
 
 #blockC00{

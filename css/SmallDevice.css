@@ -1,0 +1,27 @@
+body {
+  background-color: pink;
+}
+
+#pixelPainter {
+  display: inline-block;
+}
+
+#colorSwatch {
+  display: block;
+  max-height: 45px;
+  clear: both;
+  max-width: 355px;
+}
+
+#buttons {
+  display: static;
+  float: left;
+}
+
+.btns {
+  display: inline-block;
+}
+
+.blockC {
+  display: inline-block;
+}
