@@ -1,17 +1,18 @@
-window.onload =function(){
-var color = 'white';
-var checker = false;
-var undoList = [];
+ //Every color selector will clear oldList????
+
+window.onload = function(){
+var color = 'white',
+    checker = false,
+    oldList = [],
+    newList = [];
 
 function PixelPainter(width,height){
   this.width = width;
   this.height =height;
-
 }
 
 function Cell(width,height){
   PixelPainter.call(this,width,height);
-
 }
 
 Cell.prototype = Object.create(PixelPainter.prototype,{
@@ -20,10 +21,8 @@ Cell.prototype = Object.create(PixelPainter.prototype,{
   }
 });
 
-
 function ColorSwatch(width,height){
   PixelPainter.call(this,width,height);
-
 }
 
 ColorSwatch.prototype = Object.create(PixelPainter.prototype,{
@@ -58,10 +57,12 @@ var makingSquare = function(number){
       // 1. Uncomment this.
       // 2. Comment out "mousedown" and "mouseup" event listeners
 
-        mouseEnter.addEventListener("click", function(){
+      mouseEnter.addEventListener("click", function(){
         this.style.background = color;
         checker = !checker;
-        undoList.push(this);
+        oldList.push(this);
+        newList.push(this);
+        console.log(oldList);
       });
 
       // mouseEnter.addEventListener("mousedown", function(){
@@ -72,14 +73,15 @@ var makingSquare = function(number){
       mouseEnter.addEventListener("mouseenter", function(){
         if (checker === true) {
             this.style.background=color;
-            undoList.push(this);
+            oldList.push(this);
+            newList.push(this);
+            console.log(oldList);
         }
 
-        // mouseEnter.addEventListener("mouseup", function(){
-          // undoList.push(this);
-          // checker = false;
-          //}
-
+      // mouseEnter.addEventListener("mouseup", function(){
+      //   oldList.push(this);
+      //   checker = false;
+      //   }
 
       //clear button here
       //getElementsByClassName returns a HTML Collection (like array)
@@ -95,10 +97,10 @@ var makingSquare = function(number){
       //iterate through list of objects saved and change color to white
       var undoLast = document.getElementById('undo');
       undoLast.addEventListener("click", function(){
-        for (i = 0; i < undoList.length; i++) {
-          undoList[i].style.background = 'white';
+        for (i = 0; i < oldList.length; i++) {
+          newList[i].style.background = 'white';
         }
-          undoList = [];
+          newList = [];
       });
 
       });
@@ -135,7 +137,8 @@ var makingColorSwatch = function(number){
 var colorSwatch = document.createElement('div');
 colorSwatch.id = 'colorSwatch';
 document.body.appendChild(colorSwatch);
-//append a div(our color swatch) to colorSwatch
+
+//append a div ( our color swatch ) to colorSwatch
 var colorSwatchGrid = document.createElement('div');
 colorSwatchGrid.innerHTML = makingColorSwatch(4);
 document.getElementById('colorSwatch').appendChild(colorSwatchGrid);
@@ -145,97 +148,121 @@ var buttons = document.createElement('div');
 buttons.id = 'buttons';
 
 document.body.appendChild(buttons);
+
 //append an erase button
 var eraseButton = document.createElement('button');
 eraseButton.id = 'erase';
 eraseButton.innerHTML = "Erase";
 document.getElementById('buttons').appendChild(eraseButton);
+
 //append a clear button
 var clearButton = document.createElement('button');
 clearButton.id = 'clear';
 clearButton.innerHTML = "Clear";
 document.getElementById('buttons').appendChild(clearButton);
+
 //append an undo button
 var undoButton = document.createElement('button');
 undoButton.id = 'undo';
 undoButton.innerHTML = "Undo";
 document.getElementById('buttons').appendChild(undoButton);
-//append divs(our ) to our
+
+//append a copy button
+var copyButton = document.createElement('button');
+copyButton.id = 'copy';
+copyButton.innerHTML = "Copy";
+document.getElementById('buttons').appendChild(copyButton);
+
+//append divs ( our ) to our
 var grid = document.createElement('div');
-grid.innerHTML =makingSquare(20);
+grid.innerHTML = makingSquare(20);
 document.getElementById('pixelPainter').appendChild(grid);
 
 //---------------------------------------------
 
 document.getElementById('blockC00').addEventListener("click", function(){
   color= "red";
+  newList = [];
     });
 
 document.getElementById('blockC01').addEventListener("click", function(){
   color= "green";
+  newList = [];
     });
 
 document.getElementById('blockC02').addEventListener("click", function(){
   color= "yellow";
+  newList = [];
     });
 
 document.getElementById('blockC03').addEventListener("click", function(){
   color= "blue";
+  newList = [];
     });
 
 document.getElementById('blockC10').addEventListener("click", function(){
   color= "black";
+  newList = [];
     });
 
 document.getElementById('blockC11').addEventListener("click", function(){
   color= "white";
+  newList = [];
     });
 
 document.getElementById('blockC12').addEventListener("click", function(){
   color= "brown";
+  newList = [];
     });
 
 document.getElementById('blockC13').addEventListener("click", function(){
   color= "gray";
+  newList = [];
     });
 
 document.getElementById('blockC20').addEventListener("click", function(){
   color= "pink";
+  newList = [];
     });
 
 document.getElementById('blockC21').addEventListener("click", function(){
   color= "orange";
+  newList = [];
     });
 
 document.getElementById('blockC22').addEventListener("click", function(){
   color= "blanchedalmond";
+  newList = [];
     });
 
 document.getElementById('blockC23').addEventListener("click", function(){
   color= "fuchsia";
+  newList = [];
     });
 
 document.getElementById('blockC30').addEventListener("click", function(){
   color= "Chartreuse";
+  newList = [];
     });
 
 document.getElementById('blockC31').addEventListener("click", function(){
   color= "cyan";
+  newList = [];
     });
 
 document.getElementById('blockC32').addEventListener("click", function(){
   color= "darkmagenta";
+  newList = [];
     });
 
 document.getElementById('blockC33').addEventListener("click", function(){
   color= "firebrick";
+  newList = [];
     });
 
 document.getElementById('erase').addEventListener("click", function(){
   color = "white";
+  newList = [];
 });
-
-
-// });
 
 };
