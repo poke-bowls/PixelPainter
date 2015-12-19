@@ -23,6 +23,7 @@ h1 {
 }
 
 #buttons {
+  display: inline-block;
   padding: 0px;
   display: static;
   float: left;
