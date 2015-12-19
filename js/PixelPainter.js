@@ -4,30 +4,39 @@ window.onload = function() {
   document.getElementById( 'pixelPainter' ).appendChild( table );
 
 
-  function makingGrid ( width, height ){
+  function MakingGrid ( width, height ){
+    this.width = width;
+    this.height = height;
 
-    //make table rows
-    for( var j = 0; j < height; j++ ){
-    var row = document.createElement( 'tr' );
-    row.id = 'row' + j;
-    row.className = 'row';
-    row.innerHTML = '';
-    document.getElementById('myTable').appendChild(row);
-      //make table columns
-      for(var i = 0; i < width; i ++) {
-        var column = document.createElement('td');
-        column.id = j + 'column'+ i ;
-        column.className = 'column';
-        column.innerHTML = '';
-        column.style.background = 'white';
-        document.getElementById( 'row' + j ).appendChild( column );
+    this.makeRows = function() {
+      //make table rows
+      for( var j = 0; j < this.height; j++ ){
+      var row = document.createElement( 'tr' );
+      row.id = 'row' + j;
+      row.className = 'row';
+      row.innerHTML = '';
+      document.getElementById('myTable').appendChild(row);
+        //make table columns
+        for(var i = 0; i < this.width; i ++) {
+          var column = document.createElement('td');
+          column.id = j + 'column'+ i ;
+          column.className = 'column';
+          column.innerHTML = '';
+          column.style.background = 'white';
+          document.getElementById( 'row' + j ).appendChild( column );
 
-      }//inner for
-    }//outer for
-    return '';
+        }//inner for
+      }//outer for
+      return '';
+    };
+
   }//makingGrid
+  var grid = new MakingGrid( 20, 20 );
+  grid.makeRows();
 
-makingGrid(20, 20); 
+  var colorSwatch = new MakingGrid( 4, 4 );
+  colorSwatch.makeRows();
+  // var colorSwatch = new MakingGrid( 4, 4 );
 
 
 
