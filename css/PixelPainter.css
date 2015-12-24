@@ -12,7 +12,7 @@
 
 #colorSwatch {
   padding: 5px;
-  max-width: 45px;
+  max-width: 453px;
   float: left;
   clear: both;
   display: block;
@@ -53,68 +53,4 @@
 
 .btns {
   display: block;
-}
-
-#g0ukulele0{
-  background: red;
-}
-
-#blockC01{
-  background-color: green;
-}
-
-#blockC02{
-  background-color: yellow;
-}
-
-#blockC03 {
-  background-color: blue;
-}
-
-#blockC10{
-  background-color: black;
-}
-
-#blockC11{
-  background-color: white;
-}
-
-#blockC12{
-  background-color: brown;
-}
-
-#blockC13{
-  background-color: gray;
-}
-
-#blockC20{
-  background-color: pink;
-}
-
-#blockC21{
-  background-color: orange;
-}
-
-#blockC22{
-  background-color: blanchedalmond;
-}
-
-#blockC23{
-  background-color: fuchsia;
-}
-
-#blockC30{
-  background-color: chartreuse;
-}
-
-#blockC31{
-  background-color: cyan;
-}
-
-#blockC32{
-  background-color: darkmagenta;
-}
-
-#blockC33{
-  background-color: firebrick;
 }
